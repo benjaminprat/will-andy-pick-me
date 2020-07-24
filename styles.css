@@ -10,3 +10,77 @@ light blue background: #E6ECF4;
 clear button: #DE4841;
 clear button disabled: #D0CDCD
 */
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  font-family: 'Life Savers', serif;
+  color: #2B4E80;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+}
+
+main section {
+  background-color: #E6ECF4;
+}
+
+input[type='text']::placeholder {
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+  /* display: flex;
+  align-items: center; */
+}
+
+.question-answer {
+  display: flex;
+  flex-direction: column;
+  padding: 18px;
+}
+
+.question-answer input {
+  height: 24px;
+  color: #2B4E80
+}
+
+.imput-button-disable {
+  font-family: 'Open Sans', sans-serif;
+  height: 24px;
+  background-color: #607AA0;
+  color: white
+}
+
+.imput-button-enable {
+  font-family: 'Open Sans', sans-serif;
+  height: 24px;
+  background-color: #2B4E80;
+  color: white
+}
+
+.clear-button-disable {
+  margin: 18px;
+  border: none;
+  color: white;
+  background-color: #D0CDCD
+}
+
+.clear-button-enable {
+  margin: 18px;
+  border: none;
+  color: white;
+  background-color: #DE4841
+}
+
+.imput-button-enable:hover {
+  background-color: #1C3455
+}
+
+.hidden {
+  display: none;
+}
