@@ -25,6 +25,13 @@ h1 {
 main {
   display: flex;
   flex-direction: row;
+  width: 900px;
+}
+
+.favorites {
+  width: 900px;
+  background-color: #2B4E80;
+  color: white;
 }
 
 main section {
@@ -37,8 +44,6 @@ main section {
 input[type='text']::placeholder {
   font-family: 'Open Sans', sans-serif;
   text-align: center;
-  /* display: flex;
-  align-items: center; */
 }
 
 .question-answer {
@@ -84,6 +89,13 @@ input[type='text']::placeholder {
   background-color: #DE4841
 }
 
+.save {
+  margin: 18px;
+  border: none;
+  color: white;
+  background-color: #DE4841
+}
+
 .imput-button-enable:hover {
   background-color: #1C3455
 }
@@ -91,6 +103,11 @@ input[type='text']::placeholder {
 .eight-ball {
   width: 350px;
   height: auto;
+}
+
+.butts {
+  display: flex;
+  flex-direction: row;
 }
 
 .hidden {

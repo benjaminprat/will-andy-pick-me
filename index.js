@@ -6,7 +6,11 @@ var clearBtnEnable = document.querySelector('.clear-button-enable');
 var inputQuestion = document.querySelector('.input-question');
 var answer = document.querySelector('.answer');
 var eightBall = document.querySelector('.eight-ball');
-
+var save = document.querySelector('.save');
+var favQuestions = document.querySelector('.favorite-questions');
+var favAnswers = document.querySelector('.favorite-answers');
+var favorites = document.querySelector('.favorites');
+var hiddenAns;
 var replyList = [
   'It is certain.',
   'It is decidedly so.',
@@ -30,26 +34,23 @@ var replyList = [
   'Very doubtful.'
 ];
 
-function randReplyIndex() {
-  return Math.floor(Math.random() * replyList.length)
-}
-
 input.addEventListener('input', checkInput);
 buttonEnable.addEventListener('click', getAns);
 clearBtnEnable.addEventListener('click', clearPage);
+save.addEventListener('click', saveQuestion);
+
+function randReplyIndex() {
+  return Math.floor(Math.random() * replyList.length)
+}
 
 function checkInput(event) {
   event.preventDefault();
   if (input.value.includes('?')) {
     buttonDisable.classList.add('hidden');
     buttonEnable.classList.remove('hidden');
-    // clearBtnDisable.classList.add('hidden');
-    // clearBtnEnable.classList.remove('hidden');
   } else {
     buttonDisable.classList.remove('hidden');
     buttonEnable.classList.add('hidden');
-    // clearBtnDisable.classList.remove('hidden');
-    // clearBtnEnable.classList.add('hidden');
   }
 }
 
@@ -63,6 +64,8 @@ function getAns(event) {
   answer.classList.remove('hidden');
   inputQuestion.classList.remove('hidden');
   eightBall.classList.add('hidden');
+  save.classList.remove('hidden');
+  hiddenAns = input.value;
   input.value = '';
 }
 
@@ -73,5 +76,14 @@ function clearPage(event) {
   inputQuestion.classList.add('hidden');
   eightBall.classList.remove('hidden');
   answer.classList.add('hidden');
+  save.classList.add('hidden');
+}
 
+function saveQuestion() {
+  favorites.insertAdjacentHTML('afterbegin', `
+    <section class="favorite-questions">${hiddenAns}</section>
+    <section class="favorite-answers">${answer.innerText}</section>
+    `
+ );
+ clearPage();
 }
