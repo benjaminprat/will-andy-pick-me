@@ -93,7 +93,7 @@ input[type='text']::placeholder {
   margin: 18px;
   border: none;
   color: white;
-  background-color: #DE4841
+  background-color: #DE4841;
 }
 
 .imput-button-enable:hover {
