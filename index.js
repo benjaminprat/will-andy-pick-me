@@ -36,28 +36,42 @@ function randReplyIndex() {
 
 input.addEventListener('input', checkInput);
 buttonEnable.addEventListener('click', getAns);
+clearBtnEnable.addEventListener('click', clearPage);
 
 function checkInput(event) {
   event.preventDefault();
   if (input.value.includes('?')) {
     buttonDisable.classList.add('hidden');
     buttonEnable.classList.remove('hidden');
-    clearBtnDisable.classList.add('hidden');
-    clearBtnEnable.classList.remove('hidden');
+    // clearBtnDisable.classList.add('hidden');
+    // clearBtnEnable.classList.remove('hidden');
   } else {
     buttonDisable.classList.remove('hidden');
     buttonEnable.classList.add('hidden');
-    clearBtnDisable.classList.remove('hidden');
-    clearBtnEnable.classList.add('hidden');
+    // clearBtnDisable.classList.remove('hidden');
+    // clearBtnEnable.classList.add('hidden');
   }
 }
 
 function getAns(event) {
-  // event.preventDefault();
+  buttonDisable.classList.remove('hidden');
+  buttonEnable.classList.add('hidden');
+  clearBtnDisable.classList.add('hidden');
+  clearBtnEnable.classList.remove('hidden');
   inputQuestion.innerText = input.value;
   answer.innerText = replyList[randReplyIndex()];
   answer.classList.remove('hidden');
   inputQuestion.classList.remove('hidden');
   eightBall.classList.add('hidden');
   input.value = '';
+}
+
+function clearPage(event) {
+  eightBall.classList.remove('hidden');
+  clearBtnDisable.classList.remove('hidden');
+  clearBtnEnable.classList.add('hidden');
+  inputQuestion.classList.add('hidden');
+  eightBall.classList.remove('hidden');
+  answer.classList.add('hidden');
+
 }
